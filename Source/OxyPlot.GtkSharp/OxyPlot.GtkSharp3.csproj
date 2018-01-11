@@ -79,7 +79,6 @@
     <Compile Include="PlotViewGtk3.cs" />
     <Compile Include="Utilities\ConverterExtensions.cs" />
     <Compile Include="GraphicsRenderContext.cs" />
-    <Compile Include="NamespaceDoc.cs" />
     <Compile Include="PlotModelExtensions.cs" />
     <Compile Include="PngExporter.cs" />
     <Compile Include="Properties\AssemblyInfoGtk3.cs" />
