@@ -11,17 +11,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleBrowser", "Examples\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtkSharpDemo", "Examples\GtkSharp\GtkSharpDemo\GtkSharpDemo.csproj", "{04C4F5CF-4B8A-4D27-9562-462581C1D323}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OxyPlot.GtkSharp.Shared", "OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.shproj", "{AE281D72-34A8-4B84-AA7C-E1BACE70F0C0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.GtkSharp3", "OxyPlot.GtkSharp3\OxyPlot.GtkSharp3.csproj", "{8B2DC377-4689-4252-AA08-3ACD06A045F3}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ExampleBrowser.Shared", "Examples\GtkSharp.Shared\ExampleBrowser\ExampleBrowser.Shared.shproj", "{064EE52B-483C-4E96-A9DE-2A2D293EA741}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GtkSharpDemo.Shared", "Examples\GtkSharp.Shared\GtkSharpDemo\GtkSharpDemo.Shared.shproj", "{08C8BDFF-CF2A-484D-8051-289538774D35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleBrowserGtk3", "Examples\GtkSharp3\ExampleBrowser\ExampleBrowserGtk3.csproj", "{BA5651BE-8B77-4107-8DF7-FFB73C850E18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtkSharp3Demo", "Examples\GtkSharp3\GtkSharpDemo\GtkSharp3Demo.csproj", "{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OxyPlot.GtkSharp.Shared", "OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.shproj", "{AE281D72-34A8-4B84-AA7C-E1BACE70F0C0}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ExampleBrowser.Shared", "Examples\GtkSharp.Shared\ExampleBrowser\ExampleBrowser.Shared.shproj", "{064EE52B-483C-4E96-A9DE-2A2D293EA741}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GtkSharpDemo.Shared", "Examples\GtkSharp.Shared\GtkSharpDemo\GtkSharpDemo.Shared.shproj", "{08C8BDFF-CF2A-484D-8051-289538774D35}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
