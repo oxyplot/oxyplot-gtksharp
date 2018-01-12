@@ -5,9 +5,16 @@ VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.GtkSharp", "OxyPlot.GtkSharp\OxyPlot.GtkSharp.csproj", "{89D008D7-AD33-4AB6-B61A-064C48DA6699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.GtkSharp3", "OxyPlot.GtkSharp\OxyPlot.GtkSharp3.csproj", "{8B2DC377-4689-4252-AA08-3ACD06A045F3}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OxyPlot.GtkSharp.Shared", "OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.shproj", "{AE281D72-34A8-4B84-AA7C-E1BACE70F0C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.GtkSharp3", "OxyPlot.GtkSharp3\OxyPlot.GtkSharp3.csproj", "{8B2DC377-4689-4252-AA08-3ACD06A045F3}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems*{89d008d7-ad33-4ab6-b61a-064c48da6699}*SharedItemsImports = 4
+		OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems*{8b2dc377-4689-4252-aa08-3acd06a045f3}*SharedItemsImports = 4
+		OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems*{ae281d72-34a8-4b84-aa7c-e1bace70f0c0}*SharedItemsImports = 13
+
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x86 = Debug|x86
