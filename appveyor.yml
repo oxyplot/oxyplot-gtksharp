@@ -26,7 +26,7 @@ build:
  
 after_build:
   - NuGet pack Source\OxyPlot.GtkSharp\OxyPlot.GtkSharp.nuspec -version "%GitVersion_NuGetVersion%"
-  - NuGet pack Source\OxyPlot.GtkSharp\OxyPlot.GtkSharp3.nuspec -version "%GitVersion_NuGetVersion%"
+  - NuGet pack Source\OxyPlot.GtkSharp3\OxyPlot.GtkSharp3.nuspec -version "%GitVersion_NuGetVersion%"
 
 artifacts:
   - path: '*.nupkg'
