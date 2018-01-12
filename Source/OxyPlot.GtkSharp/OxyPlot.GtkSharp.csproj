@@ -41,7 +41,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>OxyPlot.GtkSharp.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="OxyPlot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
@@ -72,19 +73,14 @@
     <Compile Include="..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="PlotView.cs" />
     <Compile Include="PlotViewGtk2.cs" />
-    <Compile Include="Utilities\ConverterExtensions.cs" />
-    <Compile Include="GraphicsRenderContext.cs" />
-    <Compile Include="PlotModelExtensions.cs" />
-    <Compile Include="PngExporter.cs" />
     <Compile Include="Properties\AssemblyInfoGtk2.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OxyPlot.GtkSharp.snk" />
     <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="..\OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

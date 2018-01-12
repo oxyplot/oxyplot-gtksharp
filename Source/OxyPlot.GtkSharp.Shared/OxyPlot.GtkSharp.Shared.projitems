@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ae281d72-34a8-4b84-aa7c-e1bace70f0c0</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>OxyPlot.GtkSharp.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)GraphicsRenderContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlotModelExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlotView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PngExporter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\ConverterExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)OxyPlot.GtkSharp.snk" />
+  </ItemGroup>
+</Project>
