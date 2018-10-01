@@ -80,9 +80,7 @@ namespace ExampleBrowser
 
             this.treeView.Selection.Changed += (s, e) =>
             {
-                TreeIter selectedNode;
-                TreeModel selectedModel;
-                if (treeView.Selection.GetSelected(out selectedModel, out selectedNode))
+                if (treeView.Selection.GetSelected(out var selectedModel, out var selectedNode))
                 {
                     string val1 = (string)selectedModel.GetValue(selectedNode, 0);
                     string val2 = (string)selectedModel.GetValue(selectedNode, 1);

@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.GtkSharp", "OxyPlot.GtkSharp\OxyPlot.GtkSharp.csproj", "{89D008D7-AD33-4AB6-B61A-064C48DA6699}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OxyPlot.GtkSharp", "OxyPlot.GtkSharp\OxyPlot.GtkSharp.csproj", "{89D008D7-AD33-4AB6-B61A-064C48DA6699}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{47133BFC-5147-43B7-94F9-AB12B006C8AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleBrowser", "Examples\GtkSharp\ExampleBrowser\ExampleBrowser.csproj", "{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleBrowser", "Examples\GtkSharp\ExampleBrowser\ExampleBrowser.csproj", "{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtkSharpDemo", "Examples\GtkSharp\GtkSharpDemo\GtkSharpDemo.csproj", "{04C4F5CF-4B8A-4D27-9562-462581C1D323}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GtkSharpDemo", "Examples\GtkSharp\GtkSharpDemo\GtkSharpDemo.csproj", "{04C4F5CF-4B8A-4D27-9562-462581C1D323}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxyPlot.GtkSharp3", "OxyPlot.GtkSharp3\OxyPlot.GtkSharp3.csproj", "{8B2DC377-4689-4252-AA08-3ACD06A045F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OxyPlot.GtkSharp3", "OxyPlot.GtkSharp3\OxyPlot.GtkSharp3.csproj", "{8B2DC377-4689-4252-AA08-3ACD06A045F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleBrowserGtk3", "Examples\GtkSharp3\ExampleBrowser\ExampleBrowserGtk3.csproj", "{BA5651BE-8B77-4107-8DF7-FFB73C850E18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleBrowserGtk3", "Examples\GtkSharp3\ExampleBrowser\ExampleBrowserGtk3.csproj", "{BA5651BE-8B77-4107-8DF7-FFB73C850E18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtkSharp3Demo", "Examples\GtkSharp3\GtkSharpDemo\GtkSharp3Demo.csproj", "{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GtkSharp3Demo", "Examples\GtkSharp3\GtkSharpDemo\GtkSharp3Demo.csproj", "{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OxyPlot.GtkSharp.Shared", "OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.shproj", "{AE281D72-34A8-4B84-AA7C-E1BACE70F0C0}"
 EndProject
@@ -23,17 +23,20 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "ExampleBrowser.Shared", "Ex
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "GtkSharpDemo.Shared", "Examples\GtkSharp.Shared\GtkSharpDemo\GtkSharpDemo.Shared.shproj", "{08C8BDFF-CF2A-484D-8051-289538774D35}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25DA8D9B-8DE9-4686-9F8B-E838BFA57844}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\appveyor.yml = ..\appveyor.yml
+		..\CHANGELOG.md = ..\CHANGELOG.md
+		..\LICENSE = ..\LICENSE
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Examples\GtkSharp.Shared\GtkSharpDemo\GtkSharpDemo.Shared.projitems*{04c4f5cf-4b8a-4d27-9562-462581c1d323}*SharedItemsImports = 4
 		Examples\GtkSharp.Shared\ExampleBrowser\ExampleBrowser.Shared.projitems*{064ee52b-483c-4e96-a9de-2a2d293ea741}*SharedItemsImports = 13
 		Examples\GtkSharp.Shared\GtkSharpDemo\GtkSharpDemo.Shared.projitems*{08c8bdff-cf2a-484d-8051-289538774d35}*SharedItemsImports = 13
-		Examples\GtkSharp.Shared\GtkSharpDemo\GtkSharpDemo.Shared.projitems*{480a7e68-5f4d-48c8-a8bd-e2dc1ba362e6}*SharedItemsImports = 4
-		Examples\GtkSharp.Shared\ExampleBrowser\ExampleBrowser.Shared.projitems*{7cecf810-9b40-46a9-9b56-5a719cfdcad0}*SharedItemsImports = 4
-		OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems*{89d008d7-ad33-4ab6-b61a-064c48da6699}*SharedItemsImports = 4
-		OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems*{8b2dc377-4689-4252-aa08-3acd06a045f3}*SharedItemsImports = 4
 		OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems*{ae281d72-34a8-4b84-aa7c-e1bace70f0c0}*SharedItemsImports = 13
-		Examples\GtkSharp.Shared\ExampleBrowser\ExampleBrowser.Shared.projitems*{ba5651be-8b77-4107-8df7-ffb73c850e18}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,22 +53,22 @@ Global
 		{89D008D7-AD33-4AB6-B61A-064C48DA6699}.Release|Any CPU.Build.0 = Release|Any CPU
 		{89D008D7-AD33-4AB6-B61A-064C48DA6699}.Release|x86.ActiveCfg = Release|Any CPU
 		{89D008D7-AD33-4AB6-B61A-064C48DA6699}.Release|x86.Build.0 = Release|Any CPU
-		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Debug|Any CPU.Build.0 = Debug|x86
-		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Debug|x86.ActiveCfg = Debug|x86
-		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Debug|x86.Build.0 = Debug|x86
-		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Release|Any CPU.ActiveCfg = Release|x86
-		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Release|Any CPU.Build.0 = Release|x86
-		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Release|x86.ActiveCfg = Release|x86
-		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Release|x86.Build.0 = Release|x86
-		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Debug|Any CPU.Build.0 = Debug|x86
-		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Debug|x86.ActiveCfg = Debug|x86
-		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Debug|x86.Build.0 = Debug|x86
-		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Release|Any CPU.ActiveCfg = Release|x86
-		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Release|Any CPU.Build.0 = Release|x86
-		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Release|x86.ActiveCfg = Release|x86
-		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Release|x86.Build.0 = Release|x86
+		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Debug|x86.Build.0 = Debug|Any CPU
+		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Release|x86.ActiveCfg = Release|Any CPU
+		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0}.Release|x86.Build.0 = Release|Any CPU
+		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Debug|x86.Build.0 = Debug|Any CPU
+		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Release|x86.ActiveCfg = Release|Any CPU
+		{04C4F5CF-4B8A-4D27-9562-462581C1D323}.Release|x86.Build.0 = Release|Any CPU
 		{8B2DC377-4689-4252-AA08-3ACD06A045F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8B2DC377-4689-4252-AA08-3ACD06A045F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B2DC377-4689-4252-AA08-3ACD06A045F3}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -74,18 +77,22 @@ Global
 		{8B2DC377-4689-4252-AA08-3ACD06A045F3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8B2DC377-4689-4252-AA08-3ACD06A045F3}.Release|x86.ActiveCfg = Release|Any CPU
 		{8B2DC377-4689-4252-AA08-3ACD06A045F3}.Release|x86.Build.0 = Release|Any CPU
-		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Debug|x86.ActiveCfg = Debug|x86
-		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Debug|x86.Build.0 = Debug|x86
-		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Release|Any CPU.ActiveCfg = Release|x86
-		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Release|x86.ActiveCfg = Release|x86
-		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Release|x86.Build.0 = Release|x86
-		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Debug|x86.ActiveCfg = Debug|x86
-		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Debug|x86.Build.0 = Debug|x86
-		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Release|Any CPU.ActiveCfg = Release|x86
-		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Release|x86.ActiveCfg = Release|x86
-		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Release|x86.Build.0 = Release|x86
+		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Debug|x86.Build.0 = Debug|Any CPU
+		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Release|x86.ActiveCfg = Release|Any CPU
+		{BA5651BE-8B77-4107-8DF7-FFB73C850E18}.Release|x86.Build.0 = Release|Any CPU
+		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Debug|x86.Build.0 = Debug|Any CPU
+		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Release|x86.ActiveCfg = Release|Any CPU
+		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,10 +100,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7CECF810-9B40-46A9-9B56-5A719CFDCAD0} = {47133BFC-5147-43B7-94F9-AB12B006C8AC}
 		{04C4F5CF-4B8A-4D27-9562-462581C1D323} = {47133BFC-5147-43B7-94F9-AB12B006C8AC}
-		{064EE52B-483C-4E96-A9DE-2A2D293EA741} = {47133BFC-5147-43B7-94F9-AB12B006C8AC}
-		{08C8BDFF-CF2A-484D-8051-289538774D35} = {47133BFC-5147-43B7-94F9-AB12B006C8AC}
 		{BA5651BE-8B77-4107-8DF7-FFB73C850E18} = {47133BFC-5147-43B7-94F9-AB12B006C8AC}
 		{480A7E68-5F4D-48C8-A8BD-E2DC1BA362E6} = {47133BFC-5147-43B7-94F9-AB12B006C8AC}
+		{064EE52B-483C-4E96-A9DE-2A2D293EA741} = {47133BFC-5147-43B7-94F9-AB12B006C8AC}
+		{08C8BDFF-CF2A-484D-8051-289538774D35} = {47133BFC-5147-43B7-94F9-AB12B006C8AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {01DC0FFB-80E7-4B74-BA4D-9137B9F4476F}
