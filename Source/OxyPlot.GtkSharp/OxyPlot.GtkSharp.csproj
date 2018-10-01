@@ -1,7 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
-    <SignAssembly>true</SignAssembly>
+    <PackageId>OxyPlot.GtkSharp</PackageId>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>OxyPlot for GTK# 2</Description>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/oxyplot/oxyplot-gtksharp/master/LICENSE</PackageLicenseUrl>
+    <Copyright>OxyPlot contributors</Copyright>
+    <PackageProjectUrl>http://oxyplot.org/</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/oxyplot/oxyplot/develop/Icons/OxyPlot_128.png</PackageIconUrl>
+    <PackageTags>plotting plot charting chart gtk gtksharp gtk-sharp gtk#</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/oxyplot/oxyplot-gtksharp.git</RepositoryUrl>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>OxyPlot.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="..\OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems" Label="Shared" />
   <ItemGroup>
