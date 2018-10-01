@@ -1,3 +1,4 @@
+skip_branch_with_pr: true
 image: Visual Studio 2017
 platform: Any CPU
 configuration: Release
@@ -13,7 +14,7 @@ install:
   - msiexec /i gtk-sharp-2.99.3.msi /qn /norestart
 
 cache:
-  - gtk-sharp-2.12.26.msi
+  - gtk-sharp-2.12.45.msi
   - gtk-sharp-2.99.3.msi
 
 before_build:
