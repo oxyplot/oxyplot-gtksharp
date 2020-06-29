@@ -181,9 +181,18 @@ namespace OxyPlot.GtkSharp
         /// <returns>Mouse event arguments.</returns>
         public static OxyMouseWheelEventArgs ToMouseWheelEventArgs(this EventScroll e)
         {
+            int delta;
+#if NETFRAMEWORK
+            delta = e.Direction == ScrollDirection.Down ? -120 : 120;
+#else
+            if (e.Direction == ScrollDirection.Smooth)
+                delta = e.DeltaY < 0 ? 120 : -120;
+            else
+                delta = e.Direction == ScrollDirection.Down ? -120 : 120; // untested
+#endif
             return new OxyMouseWheelEventArgs
             {
-                Delta = e.Direction == ScrollDirection.Down ? -120 : 120,
+                Delta = delta,
                 Position = new ScreenPoint(e.X, e.Y),
                 ModifierKeys = GetModifiers(e.State)
             };
