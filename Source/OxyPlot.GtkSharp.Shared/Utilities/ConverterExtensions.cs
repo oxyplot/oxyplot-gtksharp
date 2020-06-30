@@ -185,7 +185,7 @@ namespace OxyPlot.GtkSharp
             if (e.Direction == ScrollDirection.Smooth)
                 delta = e.DeltaY < 0 ? 120 : -120;
             else
-                delta = e.Direction == ScrollDirection.Down ? -120 : 120; // untested
+                delta = e.Direction == ScrollDirection.Down ? -120 : 120;
             return new OxyMouseWheelEventArgs
             {
                 Delta = delta,
