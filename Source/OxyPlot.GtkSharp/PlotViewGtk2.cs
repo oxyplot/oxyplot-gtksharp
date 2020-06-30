@@ -52,6 +52,21 @@ namespace OxyPlot.GtkSharp
 
             return base.OnExposeEvent(evnt);
         }
+
+        /// <summary>
+        /// Creates the mouse wheel event arguments.
+        /// </summary>
+        /// <param name="e">The scroll event args.</param>
+        /// <returns>Mouse event arguments.</returns>
+        private static OxyMouseWheelEventArgs GetMouseWheelEventArgs(Gdk.EventScroll e)
+        {
+            return new OxyMouseWheelEventArgs
+            {
+                Delta = e.Direction == Gdk.ScrollDirection.Down ? -120 : 120,
+                Position = new ScreenPoint(e.X, e.Y),
+                ModifierKeys = ConverterExtensions.GetModifiers(e.State)
+            };
+        }
     }
 }
 
