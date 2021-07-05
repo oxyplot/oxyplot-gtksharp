@@ -40,11 +40,6 @@ namespace OxyPlot.GtkSharp
         private Cairo.Context g;
 
         /// <summary>
-        /// The text layout context
-        /// </summary>
-        private Pango.Context c;
-
-        /// <summary>
         /// Sets the graphics target.
         /// </summary>
         /// <param name="graphics">The graphics surface.</param>
@@ -52,7 +47,6 @@ namespace OxyPlot.GtkSharp
         {
             this.g = graphics;
             this.g.Antialias = Antialias.Subpixel; // TODO  .TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
-            this.c = Pango.CairoHelper.CreateContext(this.g);
         }
 
         /// <summary>
@@ -264,7 +258,7 @@ namespace OxyPlot.GtkSharp
             VerticalAlignment valign,
             OxySize? maxSize)
         {
-            Pango.Layout layout = new Layout(this.c);
+            Pango.Layout layout = Pango.CairoHelper.CreateLayout(this.g);
             Pango.FontDescription font = new Pango.FontDescription();
             font.Family = fontFamily;
             font.Weight = (fontWeight >= 700) ? Pango.Weight.Bold : Pango.Weight.Normal;
@@ -336,7 +330,7 @@ namespace OxyPlot.GtkSharp
                 return OxySize.Empty;
             }
             this.g.Save();
-            Pango.Layout layout = new Layout(this.c);
+            Pango.Layout layout = Pango.CairoHelper.CreateLayout(this.g);
             Pango.FontDescription font = new Pango.FontDescription();
             font.Family = fontFamily;
             font.Weight = (fontWeight >= 700) ? Pango.Weight.Bold : Pango.Weight.Normal;
