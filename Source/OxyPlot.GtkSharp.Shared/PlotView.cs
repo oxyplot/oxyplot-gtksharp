@@ -380,6 +380,12 @@ namespace OxyPlot.GtkSharp
         /// <returns><c>true</c> if the event was handled.</returns>
         protected override bool OnEnterNotifyEvent(EventCrossing e)
         {
+            // If mouse has entered from an inferior window (ie the tracker label),
+            // further propagation of the event could be dangerous; e.g. if it results in
+            // the label being moved, it will cause further LeaveNotify and MotionNotify
+            // events being fired under X11.
+            if (e.Detail == NotifyType.Inferior)
+                return base.OnEnterNotifyEvent(e);
             return this.ActualController.HandleMouseEnter(this, e.ToMouseEventArgs());
         }
 
@@ -390,6 +396,12 @@ namespace OxyPlot.GtkSharp
         /// <returns><c>true</c> if the event was handled.</returns>
         protected override bool OnLeaveNotifyEvent(EventCrossing e)
         {
+            // If mouse has left via an inferior window (ie the tracker label),
+            // further propagation of the event could be dangerous; e.g. if it results in
+            // the label being moved, it will cause further LeaveNotify and MotionNotify
+            // events being fired under X11.
+            if (e.Detail == NotifyType.Inferior)
+                return base.OnLeaveNotifyEvent(e);
             return this.ActualController.HandleMouseLeave(this, e.ToMouseEventArgs());
         }
 
