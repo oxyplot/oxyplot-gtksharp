@@ -39,10 +39,12 @@ namespace OxyPlot.GtkSharp
         /// </summary>
         private Cairo.Context g;
 
+#if GTKSHARP3
         /// <summary>
         /// The text layout context
         /// </summary>
         private Pango.Context c;
+#endif
 
         /// <summary>
         /// Sets the graphics target.
@@ -52,7 +54,9 @@ namespace OxyPlot.GtkSharp
         {
             this.g = graphics;
             this.g.Antialias = Antialias.Subpixel; // TODO  .TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+#if GTKSHARP3
             this.c = Pango.CairoHelper.CreateContext(this.g);
+#endif
         }
 
         /// <summary>
@@ -264,7 +268,11 @@ namespace OxyPlot.GtkSharp
             VerticalAlignment valign,
             OxySize? maxSize)
         {
+#if GTKSHARP3
             Pango.Layout layout = new Layout(this.c);
+#else
+            Pango.Layout layout = Pango.CairoHelper.CreateLayout(this.g);
+#endif
             Pango.FontDescription font = new Pango.FontDescription();
             font.Family = fontFamily;
             font.Weight = (fontWeight >= 700) ? Pango.Weight.Bold : Pango.Weight.Normal;
@@ -318,6 +326,7 @@ namespace OxyPlot.GtkSharp
             g.Clip();
             this.g.SetSourceColor(fill);
             Pango.CairoHelper.ShowLayout(this.g, layout);
+            layout.Dispose();
             this.g.Restore();
         }
 
@@ -336,7 +345,11 @@ namespace OxyPlot.GtkSharp
                 return OxySize.Empty;
             }
             this.g.Save();
+#if GTKSHARP3
             Pango.Layout layout = new Layout(this.c);
+#else
+            Pango.Layout layout = Pango.CairoHelper.CreateLayout(this.g);
+#endif
             Pango.FontDescription font = new Pango.FontDescription();
             font.Family = fontFamily;
             font.Weight = (fontWeight >= 700) ? Pango.Weight.Bold : Pango.Weight.Normal;
@@ -347,6 +360,7 @@ namespace OxyPlot.GtkSharp
             Pango.Rectangle logicalRect;
             layout.GetExtents(out inkRect, out logicalRect);
             this.g.Restore();
+            layout.Dispose();
             return new OxySize(logicalRect.Width / Pango.Scale.PangoScale, logicalRect.Height / Pango.Scale.PangoScale);
         }
 
@@ -364,6 +378,9 @@ namespace OxyPlot.GtkSharp
             }
 
             this.imagesInUse.Clear();
+#if GTKSHARP3
+            this.c.Dispose();
+#endif
         }
 
         /// <summary>
@@ -424,7 +441,7 @@ namespace OxyPlot.GtkSharp
                 // Pixbuf imageScaled = new Pixbuf(image.Colorspace, image.HasAlpha, image.BitsPerSample, (int)w, (int)h);
                 // image.Composite(image, 0, 0, (int)w, (int)h, srcX, srcY, scalex, scaley, interpolate ? InterpType.Bilinear : InterpType.Nearest, (int)(opacity * 255));
                 // image = imageScaled;
-                
+
                 if (!interpolate)
                 {
                     image = image.ScaleSimple((int)w, (int)h, InterpType.Nearest);
