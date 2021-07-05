@@ -14,6 +14,7 @@
     <RepositoryUrl>https://github.com/oxyplot/oxyplot-gtksharp.git</RepositoryUrl>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>OxyPlot.snk</AssemblyOriginatorKeyFile>
+    <DefineConstants>GTKSHARP3</DefineConstants>
   </PropertyGroup>
   <Import Project="..\OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems" Label="Shared" />
   <ItemGroup>
