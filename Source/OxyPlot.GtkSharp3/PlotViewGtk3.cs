@@ -53,9 +53,11 @@ namespace OxyPlot.GtkSharp
         private static OxyMouseWheelEventArgs GetMouseWheelEventArgs(Gdk.EventScroll e)
         {
             int delta;
+#if NETSTANDARD2_0
             if (e.Direction == Gdk.ScrollDirection.Smooth)
                 delta = e.DeltaY < 0 ? 120 : -120;
             else
+#endif
                 delta = e.Direction == Gdk.ScrollDirection.Down ? -120 : 120;
             return new OxyMouseWheelEventArgs
             {
