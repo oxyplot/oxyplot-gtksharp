@@ -8,7 +8,7 @@
     <ProjectReference Include="..\..\..\OxyPlot.GtkSharp\OxyPlot.GtkSharp.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="OxyPlot.Core" Version="2.0.0-unstable1013" />
+    <PackageReference Include="OxyPlot.Core" Version="2.1.0-Preview1" />
     <PackageReference Include="OxyPlot.ExampleLibrary" Version="2.0.0-unstable0956" />
   </ItemGroup>
   <ItemGroup>

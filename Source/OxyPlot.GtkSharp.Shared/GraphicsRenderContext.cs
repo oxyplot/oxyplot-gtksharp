@@ -47,6 +47,16 @@ namespace OxyPlot.GtkSharp
 #endif
 
         /// <summary>
+        /// The number of nested clips applied to the graphics context.
+        /// </summary>
+        private int clipCount;
+
+        /// <summary>
+        /// The number of nested clips applied to the graphics context.
+        /// </summary>
+        public override int ClipCount => clipCount;
+
+        /// <summary>
         /// Sets the graphics target.
         /// </summary>
         /// <param name="graphics">The graphics surface.</param>
@@ -66,7 +76,11 @@ namespace OxyPlot.GtkSharp
         /// <param name="fill">The fill color.</param>
         /// <param name="stroke">The stroke color.</param>
         /// <param name="thickness">The thickness.</param>
-        public override void DrawEllipse(OxyRect rect, OxyColor fill, OxyColor stroke, double thickness)
+        /// <param name="edgeRenderingMode">The edge rendering mode.</param>
+        /// <remarks>
+        /// todo: implement edge rendering modes
+        /// </remarks>
+        public override void DrawEllipse(OxyRect rect, OxyColor fill, OxyColor stroke, double thickness, EdgeRenderingMode edgeRenderingMode)
         {
             // center of ellipse
             var ex = rect.Left + (rect.Width / 2.0);
@@ -120,9 +134,9 @@ namespace OxyPlot.GtkSharp
             IList<ScreenPoint> points,
             OxyColor stroke,
             double thickness,
+            EdgeRenderingMode edgeRenderingMode,
             double[] dashArray,
-            OxyPlot.LineJoin lineJoin,
-            bool aliased)
+            OxyPlot.LineJoin lineJoin)
         {
             if (stroke.IsVisible() && thickness > 0 && points.Count >= 2)
             {
@@ -136,6 +150,7 @@ namespace OxyPlot.GtkSharp
                     this.g.SetDash(dashArray, 0);
                 }
 
+                bool aliased = ShouldUseAntiAliasingForLine(edgeRenderingMode, points);
                 this.g.MoveTo(points[0].ToPointD(aliased));
                 foreach (var point in points.Skip(1))
                 {
@@ -154,18 +169,19 @@ namespace OxyPlot.GtkSharp
         /// <param name="fill">The fill.</param>
         /// <param name="stroke">The stroke.</param>
         /// <param name="thickness">The thickness.</param>
+        /// <param name="renderingMode">The edge rendering mode.</param>
         /// <param name="dashArray">The dash array.</param>
         /// <param name="lineJoin">The line join.</param>
-        /// <param name="aliased">if set to <c>true</c> [aliased].</param>
         public override void DrawPolygon(
             IList<ScreenPoint> points,
             OxyColor fill,
             OxyColor stroke,
             double thickness,
+            EdgeRenderingMode renderingMode,
             double[] dashArray,
-            OxyPlot.LineJoin lineJoin,
-            bool aliased)
+            OxyPlot.LineJoin lineJoin)
         {
+            bool aliased = ShouldUseAntiAliasingForEllipse(renderingMode);
             if (fill.IsVisible() && points.Count >= 2)
             {
                 // g.SmoothingMode = aliased ? SmoothingMode.None : SmoothingMode.HighQuality; // TODO: Smoothing modes
@@ -221,12 +237,14 @@ namespace OxyPlot.GtkSharp
         /// <param name="fill">The fill color.</param>
         /// <param name="stroke">The stroke color.</param>
         /// <param name="thickness">The stroke thickness.</param>
-        public override void DrawRectangle(OxyRect rect, OxyColor fill, OxyColor stroke, double thickness)
+        /// <param name="renderingMode">The edge rendering mode.</param>
+        public override void DrawRectangle(OxyRect rect, OxyColor fill, OxyColor stroke, double thickness, EdgeRenderingMode renderingMode)
         {
+            bool aliased = ShouldUseAntiAliasingForRect(renderingMode);
             if (fill.IsVisible())
             {
                 this.g.Save();
-                this.g.Rectangle(rect.ToRect(false));
+                this.g.Rectangle(rect.ToRect(aliased));
                 this.g.SetSourceColor(fill);
                 this.g.Fill();
                 this.g.Restore();
@@ -237,7 +255,7 @@ namespace OxyPlot.GtkSharp
                 this.g.Save();
                 this.g.SetSourceColor(stroke);
                 this.g.LineWidth = thickness;
-                this.g.Rectangle(rect.ToRect(false));
+                this.g.Rectangle(rect.ToRect(aliased));
                 this.g.Stroke();
                 this.g.Restore();
             }
@@ -466,19 +484,23 @@ namespace OxyPlot.GtkSharp
         /// </summary>
         /// <param name="rect">The clip rectangle.</param>
         /// <returns>True if the clip rectangle was set.</returns>
-        public override bool SetClip(OxyRect rect)
+        public override void PushClip(OxyRect rect)
         {
+            clipCount++;
+            this.g.Save();
             this.g.Rectangle(rect.Left, rect.Top, rect.Width, rect.Height);
             this.g.Clip();
-            return true;
         }
 
         /// <summary>
         /// Resets the clip rectangle.
         /// </summary>
-        public override void ResetClip()
+        public override void PopClip()
         {
-            this.g.ResetClip();
+            if (clipCount < 1)
+                throw new InvalidOperationException($"Clip count is already 0 - programmer may be missing a call to {nameof(PushClip)}");
+            clipCount--;
+            this.g.Restore();
         }
 
         /// <summary>
