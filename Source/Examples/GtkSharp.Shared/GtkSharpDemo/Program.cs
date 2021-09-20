@@ -46,7 +46,7 @@ namespace GtkSharpDemo
                 {
                     window.SetSizeRequest(800, 600);
                     window.Add(plotView);
-                    window.Focus = plotView;
+                    plotView.GrabFocus();
                     window.Show();
                     window.DeleteEvent += (s, a) =>
                     {
