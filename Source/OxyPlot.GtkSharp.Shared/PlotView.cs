@@ -368,9 +368,14 @@ namespace OxyPlot.GtkSharp
         /// </summary>
         /// <param name="e">An instance that contains the event data.</param>
         /// <returns><c>true</c> if the event was handled.</returns>
+        /// <remarks>
+        /// The way that scroll direction is determined is different between
+        /// gtk2 and gtk3, hence the need for version-specific imlementations of
+        /// GetMouseWheelEventArgs(Gdk.EventScroll) function.
+        /// </remarks>
         protected override bool OnScrollEvent(EventScroll e)
         {
-            return this.ActualController.HandleMouseWheel(this, e.ToMouseWheelEventArgs());
+            return this.ActualController.HandleMouseWheel(this, GetMouseWheelEventArgs(e));
         }
 
         /// <summary>

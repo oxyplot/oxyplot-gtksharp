@@ -175,21 +175,6 @@ namespace OxyPlot.GtkSharp
         }
 
         /// <summary>
-        /// Creates the mouse wheel event arguments.
-        /// </summary>
-        /// <param name="e">The scroll event args.</param>
-        /// <returns>Mouse event arguments.</returns>
-        public static OxyMouseWheelEventArgs ToMouseWheelEventArgs(this EventScroll e)
-        {
-            return new OxyMouseWheelEventArgs
-            {
-                Delta = e.Direction == ScrollDirection.Down ? -120 : 120,
-                Position = new ScreenPoint(e.X, e.Y),
-                ModifierKeys = GetModifiers(e.State)
-            };
-        }
-
-        /// <summary>
         /// Creates the key event arguments.
         /// </summary>
         /// <param name="e">The key event args.</param>
@@ -434,7 +419,7 @@ namespace OxyPlot.GtkSharp
         /// </summary>
         /// <param name="state">The state.</param>
         /// <returns>The modifier keys.</returns>
-        private static OxyModifierKeys GetModifiers(ModifierType state)
+        public static OxyModifierKeys GetModifiers(ModifierType state)
         {
             var result = OxyModifierKeys.None;
 
