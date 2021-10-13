@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <PackageId>OxyPlot.GtkSharp</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>OxyPlot for GTK# 2</Description>
@@ -16,7 +16,7 @@
   </PropertyGroup>
   <Import Project="..\OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems" Label="Shared" />
   <ItemGroup>
-    <PackageReference Include="OxyPlot.Core" Version="2.0.0-unstable1013" />
+    <PackageReference Include="OxyPlot.Core" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Mono.Cairo">
