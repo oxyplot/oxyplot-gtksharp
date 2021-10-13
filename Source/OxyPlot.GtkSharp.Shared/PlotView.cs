@@ -285,20 +285,28 @@ namespace OxyPlot.GtkSharp
                 // us to set the background color
                 Gtk.EventBox labelHolder = new Gtk.EventBox();
                 this.trackerLabel = new Gtk.Label();
-                this.trackerLabel.SetPadding(3, 3);
+                this.trackerLabel.Xpad = 3;
+                this.trackerLabel.Ypad = 3;
                 OxyColor bgColor = OxyColors.LightSkyBlue;
-                labelHolder.ModifyBg(StateType.Normal, new Gdk.Color(bgColor.R, bgColor.G, bgColor.B));
+                //labelHolder.ModifyBg(StateType.Normal, new Gdk.Color(bgColor.R, bgColor.G, bgColor.B));
                 labelHolder.Add(this.trackerLabel);
                 this.Add(labelHolder);
                 labelHolder.ShowAll();
             }
             this.trackerLabel.Parent.Visible = true;
             this.trackerLabel.Text = data.ToString();
+#if GTKSHARP3
+            int pw = trackerLabel.Parent.AllocatedWidth;
+            int ph = trackerLabel.Parent.AllocatedHeight;
+            int xPos = (int)data.Position.X - pw / 2;
+            int yPos = (int)data.Position.Y - ph;
+            xPos = Math.Max(0, Math.Min(xPos, this.Allocation.Width - pw));
+            yPos = Math.Max(0, Math.Min(yPos, this.Allocation.Height - ph));
+#else
             Gtk.Requisition req = this.trackerLabel.Parent.SizeRequest();
             int xPos = (int)data.Position.X - req.Width / 2;
             int yPos = (int)data.Position.Y - req.Height;
-            xPos = Math.Max(0, Math.Min(xPos, this.Allocation.Width - req.Width));
-            yPos = Math.Max(0, Math.Min(yPos, this.Allocation.Height - req.Height));
+#endif
             this.Move(trackerLabel.Parent, xPos, yPos);
         }
 
@@ -380,12 +388,6 @@ namespace OxyPlot.GtkSharp
         /// <returns><c>true</c> if the event was handled.</returns>
         protected override bool OnEnterNotifyEvent(EventCrossing e)
         {
-            // If mouse has entered from an inferior window (ie the tracker label),
-            // further propagation of the event could be dangerous; e.g. if it results in
-            // the label being moved, it will cause further LeaveNotify and MotionNotify
-            // events being fired under X11.
-            if (e.Detail == NotifyType.Inferior)
-                return base.OnEnterNotifyEvent(e);
             return this.ActualController.HandleMouseEnter(this, e.ToMouseEventArgs());
         }
 
@@ -396,12 +398,6 @@ namespace OxyPlot.GtkSharp
         /// <returns><c>true</c> if the event was handled.</returns>
         protected override bool OnLeaveNotifyEvent(EventCrossing e)
         {
-            // If mouse has left via an inferior window (ie the tracker label),
-            // further propagation of the event could be dangerous; e.g. if it results in
-            // the label being moved, it will cause further LeaveNotify and MotionNotify
-            // events being fired under X11.
-            if (e.Detail == NotifyType.Inferior)
-                return base.OnLeaveNotifyEvent(e);
             return this.ActualController.HandleMouseLeave(this, e.ToMouseEventArgs());
         }
 
@@ -419,7 +415,7 @@ namespace OxyPlot.GtkSharp
         /// Draws the plot to a cairo context within the specified bounds.
         /// </summary>
         /// <param name="cr">The cairo context to use for drawing.</param>
-        void DrawPlot (Cairo.Context cr)
+        void DrawPlot(Cairo.Context cr)
         {
             try
             {
@@ -442,13 +438,11 @@ namespace OxyPlot.GtkSharp
                     this.renderContext.SetGraphicsTarget(cr);
                     if (this.model != null)
                     {
+                        var rect = new OxyRect(0, 0, Allocation.Width, Allocation.Height);
                         if (!this.model.Background.IsUndefined())
-                        {
-                            OxyRect rect = new OxyRect(0, 0, Allocation.Width, Allocation.Height);
                             this.renderContext.DrawRectangle(rect, this.model.Background, OxyColors.Undefined, 0);
-                        }
 
-                        ((IPlotModel)this.model).Render(this.renderContext, Allocation.Width, Allocation.Height);
+                        ((IPlotModel)this.model).Render(this.renderContext, rect);
                     }
 
                     if (this.zoomRectangle.HasValue)

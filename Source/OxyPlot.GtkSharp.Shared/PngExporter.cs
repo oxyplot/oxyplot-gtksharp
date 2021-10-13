@@ -65,7 +65,7 @@ namespace OxyPlot.GtkSharp
                     var rc = new GraphicsRenderContext { RendersToScreen = false };
                     rc.SetGraphicsTarget(g);
                     model.Update(true);
-                    model.Render(rc, width, height);
+                    model.Render(rc, new OxyRect(0, 0, width, height));
                     bm.WriteToPng(fileName);
                 }
             }
@@ -98,7 +98,7 @@ namespace OxyPlot.GtkSharp
                     var rc = new GraphicsRenderContext { RendersToScreen = false };
                     rc.SetGraphicsTarget(g);
                     model.Update(true);
-                    model.Render(rc, this.Width, this.Height);
+                    model.Render(rc, new OxyRect(0, 0, this.Width, this.Height));
 
                     // write to a temporary file
                     var tmp = System.IO.Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid() + ".png");
