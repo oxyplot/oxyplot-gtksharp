@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OxyPlot.GtkSharp", "OxyPlot.GtkSharp\OxyPlot.GtkSharp.csproj", "{89D008D7-AD33-4AB6-B61A-064C48DA6699}"
 EndProject
@@ -37,9 +37,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Examples\GtkSharp.Shared\GtkSharpDemo\GtkSharpDemo.Shared.projitems*{04c4f5cf-4b8a-4d27-9562-462581c1d323}*SharedItemsImports = 5
 		Examples\GtkSharp.Shared\ExampleBrowser\ExampleBrowser.Shared.projitems*{064ee52b-483c-4e96-a9de-2a2d293ea741}*SharedItemsImports = 13
 		Examples\GtkSharp.Shared\GtkSharpDemo\GtkSharpDemo.Shared.projitems*{08c8bdff-cf2a-484d-8051-289538774d35}*SharedItemsImports = 13
+		Examples\GtkSharp.Shared\GtkSharpDemo\GtkSharpDemo.Shared.projitems*{480a7e68-5f4d-48c8-a8bd-e2dc1ba362e6}*SharedItemsImports = 5
+		Examples\GtkSharp.Shared\ExampleBrowser\ExampleBrowser.Shared.projitems*{7cecf810-9b40-46a9-9b56-5a719cfdcad0}*SharedItemsImports = 5
+		OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems*{89d008d7-ad33-4ab6-b61a-064c48da6699}*SharedItemsImports = 5
+		OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems*{8b2dc377-4689-4252-aa08-3acd06a045f3}*SharedItemsImports = 5
 		OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems*{ae281d72-34a8-4b84-aa7c-e1bace70f0c0}*SharedItemsImports = 13
+		Examples\GtkSharp.Shared\ExampleBrowser\ExampleBrowser.Shared.projitems*{ba5651be-8b77-4107-8df7-ffb73c850e18}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

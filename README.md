@@ -1,4 +1,4 @@
-OxyPlot for GTK#
+# OxyPlot for GTK#
 
 #### Getting started
 
