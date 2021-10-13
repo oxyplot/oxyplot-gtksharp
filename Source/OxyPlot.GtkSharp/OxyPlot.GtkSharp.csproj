@@ -16,7 +16,7 @@
   </PropertyGroup>
   <Import Project="..\OxyPlot.GtkSharp.Shared\OxyPlot.GtkSharp.Shared.projitems" Label="Shared" />
   <ItemGroup>
-    <PackageReference Include="OxyPlot.Core" Version="2.1.0-Preview1" />
+    <PackageReference Include="OxyPlot.Core" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Mono.Cairo">
