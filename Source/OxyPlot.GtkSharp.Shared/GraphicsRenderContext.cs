@@ -150,7 +150,7 @@ namespace OxyPlot.GtkSharp
                     this.g.SetDash(dashArray, 0);
                 }
 
-                bool aliased = ShouldUseAntiAliasingForLine(edgeRenderingMode, points);
+                bool aliased = !ShouldUseAntiAliasingForLine(edgeRenderingMode, points);
                 this.g.MoveTo(points[0].ToPointD(aliased));
                 foreach (var point in points.Skip(1))
                 {
@@ -181,7 +181,7 @@ namespace OxyPlot.GtkSharp
             double[] dashArray,
             OxyPlot.LineJoin lineJoin)
         {
-            bool aliased = ShouldUseAntiAliasingForEllipse(renderingMode);
+            bool aliased = !ShouldUseAntiAliasingForEllipse(renderingMode);
             if (fill.IsVisible() && points.Count >= 2)
             {
                 // g.SmoothingMode = aliased ? SmoothingMode.None : SmoothingMode.HighQuality; // TODO: Smoothing modes
@@ -240,7 +240,7 @@ namespace OxyPlot.GtkSharp
         /// <param name="renderingMode">The edge rendering mode.</param>
         public override void DrawRectangle(OxyRect rect, OxyColor fill, OxyColor stroke, double thickness, EdgeRenderingMode renderingMode)
         {
-            bool aliased = ShouldUseAntiAliasingForRect(renderingMode);
+            bool aliased = !ShouldUseAntiAliasingForRect(renderingMode);
             if (fill.IsVisible())
             {
                 this.g.Save();
