@@ -444,21 +444,22 @@ namespace OxyPlot.GtkSharp
 
                 lock (this.renderingLock)
                 {
+                    EdgeRenderingMode edgeRenderingMode = EdgeRenderingMode.Automatic.GetActual(EdgeRenderingMode.Adaptive);
                     this.renderContext.SetGraphicsTarget(cr);
                     if (this.model != null)
                     {
+                        OxyRect rect = new OxyRect(0, 0, Allocation.Width, Allocation.Height);
                         if (!this.model.Background.IsUndefined())
                         {
-                            OxyRect rect = new OxyRect(0, 0, Allocation.Width, Allocation.Height);
-                            this.renderContext.DrawRectangle(rect, this.model.Background, OxyColors.Undefined, 0);
+                            this.renderContext.DrawRectangle(rect, this.model.Background, OxyColors.Undefined, 0, edgeRenderingMode);
                         }
 
-                        ((IPlotModel)this.model).Render(this.renderContext, Allocation.Width, Allocation.Height);
+                        ((IPlotModel)this.model).Render(this.renderContext, rect);
                     }
 
                     if (this.zoomRectangle.HasValue)
                     {
-                        this.renderContext.DrawRectangle(this.zoomRectangle.Value, OxyColor.FromArgb(0x40, 0xFF, 0xFF, 0x00), OxyColors.Transparent, 1.0);
+                        this.renderContext.DrawRectangle(this.zoomRectangle.Value, OxyColor.FromArgb(0x40, 0xFF, 0xFF, 0x00), OxyColors.Transparent, 1.0, edgeRenderingMode);
                     }
                 }
             }
