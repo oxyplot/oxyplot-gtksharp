@@ -12,7 +12,7 @@ You can find examples in the `/Source/Examples` folder in the code repository.
 
 #### NuGet packages
 
-The latest pre-release packages are pushed by AppVeyor CI to [myget.org](https://www.myget.org/)
+The latest pre-release packages are pushed to [myget.org](https://www.myget.org/)
 To install these packages, set the myget.org package source `https://www.myget.org/F/oxyplot` and remember the "-pre" flag. 
 
 The stable release packages are pushed to [nuget.org](https://www.nuget.org/packages?q=oxyplot).
